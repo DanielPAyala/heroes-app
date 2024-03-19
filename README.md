@@ -1,5 +1,12 @@
 # HeroesApp
 
+## Local development
+
+1. Clone the project
+2. Execute `npm install`
+3. Run backend `npm run backend`
+4. Execute `npm start` or `ng serve -o` to run the app
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.1.1.
 
 ## Development server
