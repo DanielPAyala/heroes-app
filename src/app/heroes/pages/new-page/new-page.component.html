@@ -9,25 +9,30 @@
   <div class="col-12 sm:col-6 pt-4">
     <mat-card>
       <mat-card-content>
-        <div class="grid">
+        <form class="grid" [formGroup]="heroForm" (ngSubmit)="onSubmit()">
           <mat-form-field class="col-12 sm:col-6">
             <mat-label>Super héroe</mat-label>
-            <input matInput required type="text" />
+            <input matInput required type="text" formControlName="superhero" />
           </mat-form-field>
 
           <mat-form-field class="col-12 sm:col-6">
             <mat-label>Alter ego</mat-label>
-            <input matInput required type="text" />
+            <input matInput required type="text" formControlName="alter_ego" />
           </mat-form-field>
 
           <mat-form-field class="col-12">
             <mat-label>Primera aparición</mat-label>
-            <input matInput required type="text" />
+            <input
+              matInput
+              required
+              type="text"
+              formControlName="first_appearance"
+            />
           </mat-form-field>
 
           <mat-form-field class="col-12">
             <mat-label>Creador</mat-label>
-            <mat-select required>
+            <mat-select required formControlName="publisher">
               <mat-option
                 *ngFor="let publisher of publishers"
                 [value]="publisher.id"
@@ -36,14 +41,19 @@
               </mat-option>
             </mat-select>
           </mat-form-field>
-        </div>
+
+          <mat-form-field class="col-12">
+            <mat-label>Imagen alternativa</mat-label>
+            <input matInput type="text" formControlName="alt_img" />
+          </mat-form-field>
+        </form>
         <div class="flex">
           <button mat-stroked-button color="warn">
             <mat-icon>delete</mat-icon>
             Borrar
           </button>
           <span class="spacer"></span>
-          <button mat-stroked-button color="accent">
+          <button mat-stroked-button color="accent" (click)="onSubmit()">
             <mat-icon>save</mat-icon>
             Guardar / Editar
           </button>
@@ -52,7 +62,13 @@
     </mat-card>
   </div>
 
-  <div class="col-12 sm:col-6">
-    <img src="" alt="Imagen del Héroe" matCardImage />
+  <div class="col-12 sm:col-6 pt-4">
+    <mat-card>
+      <img
+        [src]="currentHero | heroImage"
+        alt="Imagen del Héroe"
+        mat-card-image
+      />
+    </mat-card>
   </div>
 </div>
