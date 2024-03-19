@@ -1,1 +1,58 @@
-<p>new-page works!</p>
+<h2>
+  Editar / Agregar héroe
+  <small>Superman</small>
+</h2>
+
+<mat-divider></mat-divider>
+
+<div class="grid mx-2">
+  <div class="col-12 sm:col-6 pt-4">
+    <mat-card>
+      <mat-card-content>
+        <div class="grid">
+          <mat-form-field class="col-12 sm:col-6">
+            <mat-label>Super héroe</mat-label>
+            <input matInput required type="text" />
+          </mat-form-field>
+
+          <mat-form-field class="col-12 sm:col-6">
+            <mat-label>Alter ego</mat-label>
+            <input matInput required type="text" />
+          </mat-form-field>
+
+          <mat-form-field class="col-12">
+            <mat-label>Primera aparición</mat-label>
+            <input matInput required type="text" />
+          </mat-form-field>
+
+          <mat-form-field class="col-12">
+            <mat-label>Creador</mat-label>
+            <mat-select required>
+              <mat-option
+                *ngFor="let publisher of publishers"
+                [value]="publisher.id"
+              >
+                {{ publisher.desc }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="flex">
+          <button mat-stroked-button color="warn">
+            <mat-icon>delete</mat-icon>
+            Borrar
+          </button>
+          <span class="spacer"></span>
+          <button mat-stroked-button color="accent">
+            <mat-icon>save</mat-icon>
+            Guardar / Editar
+          </button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div class="col-12 sm:col-6">
+    <img src="" alt="Imagen del Héroe" matCardImage />
+  </div>
+</div>
